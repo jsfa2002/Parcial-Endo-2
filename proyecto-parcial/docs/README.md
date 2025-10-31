@@ -32,6 +32,7 @@ El pipeline intentará conectarse a la API definida en `config/pipeline_config.y
 
 ## Diseño del Pipeline de Datos
 El pipeline fue diseñado bajo un enfoque ELT siguiendo los principios que vimos de DataOps, con el objetivo de garantizar calidad, trazabilidad y escalabilidad en el manejo de los datos.
+
 **1. Ingesta**
 
 Se emplearon tres fuentes principales que son, una API REST con información de productos en tiempo real, un CSV histórico de ventas y un CSV de inventario local. Todos los datos son almacenados inicialmente en formato crudo para mantener la trazabilidad, y asi que podamos revisar cualquier cambio o actualización en el futuro.
@@ -55,6 +56,7 @@ Los datos procesados se usan para generar reportes y dashboards que nos permiten
 
 <img width="1941" height="1336" alt="mermaid-diagram-2025-10-31-162953" src="https://github.com/user-attachments/assets/e9bbac86-5a13-4831-8777-afb16c0f14b7" />
 
+Diagrama hecho con la herramienta de Mermaid.
 
 ## Qué Entrega Este Proyecto
 - Un pipeline de datos completo con enfoque ELT.
