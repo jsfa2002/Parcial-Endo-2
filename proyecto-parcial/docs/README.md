@@ -58,6 +58,15 @@ Los datos procesados se usan para generar reportes y dashboards que nos permiten
 
 Diagrama hecho con la herramienta de Mermaid.
 
+## Justificación Técnica
+
+El pipeline se desarrolló con un enfoque modular, escalable y automatizado, siguiendo los principios de DataOps para que podamos asegurar la calidad, trazabilidad y eficiencia en el procesamiento de datos.
+El uso de la arquitectura ELT nos deja almacenar los datos en su forma cruda antes de transformarlos, y así garantizamos el control y la reproducibilidad. Esta decisión técnica fue para ayudar a revisar los orígenes y mantener una línea clara de rastreo ante inconsistencias que puedan ocurrir
+.
+La separación de configuración y código mediante archivos YAML ayuda a la flexibilidad, ya que permite modificar parámetros, rutas o fuentes sin alterar la lógica del sistema, y esto simplifica la administración y el mantenimiento del pipeline.
+El diseño modular en Python permite integrar nuevas fuentes, ampliar el volumen de datos o escalar a entornos distribuidos sin necesidad de reescribir el flujo completo. Además, la incorporación de los logs y validaciones automáticas da trazabilidad y control de calidad cada vez que se ejecute.
+Poor último la estructura del proyecto ayuda a la colaboración y reproducibilidad, ya que cualquier miembro del equipo podría ejecutar el pipeline bajo las mismas condiciones, asegurando coherencia entre desarrollo, pruebas y producción.
+
 ## Qué Entrega Este Proyecto
 - Un pipeline de datos completo con enfoque ELT.
 - Ingesta desde API y CSV, transformación, calidad y generación de reportes.
