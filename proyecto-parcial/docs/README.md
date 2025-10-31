@@ -67,6 +67,31 @@ La separación de configuración y código mediante archivos YAML ayuda a la fle
 El diseño modular en Python permite integrar nuevas fuentes, ampliar el volumen de datos o escalar a entornos distribuidos sin necesidad de reescribir el flujo completo. Además, la incorporación de los logs y validaciones automáticas da trazabilidad y control de calidad cada vez que se ejecute.
 Poor último la estructura del proyecto ayuda a la colaboración y reproducibilidad, ya que cualquier miembro del equipo podría ejecutar el pipeline bajo las mismas condiciones, asegurando coherencia entre desarrollo, pruebas y producción.
 
+## Prueba del Pipeline
+Para ejecutar la prueba completa del pipeline, se utilizó el comando:
+   ```bash
+   python run_pipeline.py
+   ```
+como ya lo había mencionado.
+
+Resultado esperado:
+
+El pipeline descarga productos desde la API, carga los datos locales de sales.csv, inventory.csv, los transforma, aplica validaciones de calidad y genera los archivos procesados y el reporte final.
+
+<img width="1208" height="308" alt="image" src="https://github.com/user-attachments/assets/c41f9973-b117-41ec-8518-9555ad981977" />
+
+Archivos generados:
+
+- merged.parquet Datos combinados.
+- sales_by_category.csv Ventas totales por categoría.
+- top_products.csv  Productos más vendidos.
+- profitability.csv Rentabilidad estimada por producto.
+- critical_stock.csv  Productos con stock crítico.
+- report.json  Resumen con métricas y validaciones.
+- 
+<img width="168" height="701" alt="image" src="https://github.com/user-attachments/assets/fff1fea7-697b-4298-b6d2-a82ed52aca84" />
+
+
 ## Qué Entrega Este Proyecto
 - Un pipeline de datos completo con enfoque ELT.
 - Ingesta desde API y CSV, transformación, calidad y generación de reportes.
