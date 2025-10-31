@@ -1,3 +1,5 @@
+# Es el archivo principal que ejecuta todo el pipeline
+
 from src.orchestrator import EcommerceDataPipeline
 
 if __name__ == '__main__':
