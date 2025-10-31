@@ -1,0 +1,24 @@
+version: "1.0"
+pipeline:
+  name: "ecommerce-data-pipeline"
+  description: "Pipeline para análisis de productos y ventas"
+
+api:
+  url: "https://fakestoreapi.com/products"
+  timeout: 30
+
+data_sources:
+  sales_file: "data/raw/sales.csv"
+  inventory_file: "data/raw/inventory.csv"
+
+processing:
+  output_path: "data/processed/"
+  critical_stock_threshold: 1.2
+
+quality_checks:
+  required_columns:
+    - "product_id"
+    - "price"
+    - "category"
+  price_min: 0
+  stock_min: 0

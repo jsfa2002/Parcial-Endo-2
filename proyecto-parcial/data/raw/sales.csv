@@ -1,0 +1,4 @@
+sale_id,product_id,quantity,price,sale_date,title
+1,1,2,10.0,2023-01-01,Product A
+2,2,1,20.0,2023-02-01,Product B
+3,1,1,10.0,2023-02-15,Product A
