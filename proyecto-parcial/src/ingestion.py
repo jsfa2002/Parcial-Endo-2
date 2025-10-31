@@ -6,7 +6,7 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 def fetch_products(api_url, timeout=30, fallback_path=None):
-    """Fetch products from API. If it fails, try to read from fallback_path (CSV/JSON)."""
+    """Descarga productos desde una API. Si falla, usa un archivo local como respaldo."""
     try:
         logger.info(f"Intentando descargar productos desde API: {api_url}")
         resp = requests.get(api_url, timeout=timeout)
@@ -18,16 +18,18 @@ def fetch_products(api_url, timeout=30, fallback_path=None):
     except Exception as e:
         logger.warning(f"No se pudo descargar desde API: {e}")
         if fallback_path and Path(fallback_path).exists():
-            logger.info(f"Cargando productos desde fallback: {fallback_path}")
+            logger.info(f"Cargando productos desde respaldo local: {fallback_path}")
             return pd.read_json(fallback_path)
         logger.error("No hay datos de productos disponibles.")
         raise
 
 def load_csv(path):
+    """Carga un archivo CSV desde la ruta especificada."""
     logger.info(f"Cargando CSV: {path}")
     return pd.read_csv(path)
 
 def save_parquet(df, path):
-    logger.info(f"Guardando Parquet en: {path}")
+    """Guarda un DataFrame en formato Parquet para mantener trazabilidad."""
+    logger.info(f"Guardando archivo Parquet en: {path}")
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     df.to_parquet(path, index=False)
